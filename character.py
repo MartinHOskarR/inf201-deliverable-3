@@ -51,6 +51,7 @@ class Character:
 
     @property
     def is_alive(self) -> bool:
+        """Returns True if hp > 0 and False otherwise"""
         if self._hp > 0:
             return True
         else:
