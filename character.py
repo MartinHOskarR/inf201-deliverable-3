@@ -62,7 +62,7 @@ class Character:
 class Warrior(Character):
     """Represents a warrior character in the RPG"""
 
-    def __init__(self, name: str, hp_max: int = 100, damage: int = 10, armor: int = 5, weapon=None) -> None:
+    def __init__(self, name: str, hp_max: int = 100, damage: int = 10, weapon=None, armor: int = 5) -> None:
         """
         Initialise the Warrior
         Args:
@@ -81,3 +81,35 @@ class Warrior(Character):
     def take_damage(self, damage: int) -> None:
         """Reduce incoming damage by armor"""
         super().take_damage(max(damage - self.armor, 0)) # if the damage is less than armor , the damage dealt will be 0
+
+class Mage(Character):
+    """Represents a mage character in the RPG"""
+
+    def __init__(self, name: str, hp_max: int = 100, damage: int = 10, weapon=None, mana: int = 30, mana_max: int = 30) -> None:
+        """
+        Initialise the Mage
+        Args:
+        name (str): The name of the mage.
+        hp_max (int): Max hit points (default = 100)
+        damage (int): Damage dealt when mage attacks (default = 10)
+        weapon: martin
+        mana (int): Mana points (default = 30)
+        mana_max (int): Max mana points (default = 30)
+        """
+        super().__init__(name, hp_max, damage, weapon)
+        self.mana = mana
+        self.mana_max = mana_max
+
+    def introduce(self) -> None:
+        """Creates string that introduces mage"""
+        print(f"Hi, my name is {self.name} and I am a resource-based attacker!")
+
+    def attack(self, target) -> None:
+        """Doubles attack damage if enough mana-points"""
+        if self.mana >= 10:
+            target.take_damage(self.damage * 2)
+            self.mana -= 10
+        else:
+            super().attack(target)
+            self.mana += 5
+            self.mana = min(self.mana, self.mana_max)    
