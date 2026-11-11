@@ -1,16 +1,20 @@
 # Object-oriented game simulator
 # Turid Torheim, NMBU, 2026
+
+from dice import Dice
+from items import Weapon
+
 class Character:
     """Represents a character in the RPG"""
 
-    def __init__(self, name: str, hp_max: int = 100, damage: int = 10, weapon=None) -> None:
+    def __init__(self, name: str, hp_max: int = 100, damage: int = 10, weapon: Weapon = None) -> None:
         """
         Initialise the Character
         Args:
         name (str): The name of the character.
         hp_max (int): Max hit points (default = 100)
         damage (int): Damage dealt when character attacks (default = 10)
-        weapon: Martin
+        weapon (Weapon): The weapon the character wields (default = None)
         """
         self.name = name
         self._hp = hp_max # Note: _hp indicated private attribute
@@ -25,8 +29,13 @@ class Character:
     
 
     def attack(self, target) -> None:
-        """Attack and deal damage to target character"""
-        target.take_damage(self.damage) # Calls the take-damage function rather than modifying
+        """Attack target, using the weapon's damage roll if one is equipped, otherwise base damage"""
+        if self.weapon is not None:
+            damage = self.weapon.roll_damage()
+        else:
+            damage = self.damage
+        
+        target.take_damage(damage) # Calls the take-damage function rather than modifying
 
     def introduce(self) -> None:
         """Creates string that introduces character"""
@@ -92,7 +101,7 @@ class Mage(Character):
         name (str): The name of the mage.
         hp_max (int): Max hit points (default = 100)
         damage (int): Damage dealt when mage attacks (default = 10)
-        weapon: martin
+        weapon (Weapon): The weapon the mage wields (default = None)
         mana (int): Mana points (default = 30)
         mana_max (int): Max mana points (default = 30)
         """
