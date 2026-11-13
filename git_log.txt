@@ -1,0 +1,11 @@
+* 3d85bf0 - oskarrandel, 12 minutes ago : Some minor changes to dice logic, and needed to add back the notebook simulations that martin posted. It was wiped when he pushed
+* da6a79a - Martin Hansen, 69 minutes ago : Add Battle class and battle simulations (Task 5)
+* 77c6bef - oskarrandel, 2 days ago : Blank notebook
+* bddece3 - oskarrandel, 2 days ago : Task 2 and 3: Dice and Weapon classes, weapon damage in attack
+* ce8511f - oskarrandel, 2 days ago : Task 3: Weapon class and weapon-based damage in attack
+* 3a2f22e - oskarrandel, 2 days ago : Task 4: Mage subclass with mana-based spell attack
+* a8626e6 - oskarrandel, 2 days ago : Task 4: Warrior subclass, add optional weapon to Character
+* 2e804a6 - oskarrandel, 2 days ago : Finnished task 1
+* de3981a - oskarrandel, 2 days ago : Add venv requirements, gitignore, is_alive docstring
+* 97cc1f4 - oskarrandel, 2 days ago : Task 1: take_damage, heal, is_alive
+* 588fb9b - oskarrandel, 2 days ago : Initial commit
