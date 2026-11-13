@@ -6,7 +6,7 @@ class Dice:
     def __init__(self, sides: int = 6) -> None:
         """Represent a dice with a given number of n-sides (default = 6)"""
         # Check if sides is atleast 2
-        if sides <= 2:
+        if sides < 2:
             raise ValueError("Dice must have at least 2 sides.") 
         
         self.sides = sides
